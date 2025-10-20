@@ -9,6 +9,16 @@ body {
     padding: 0 1rem;
 }
 
+ul {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+}
+
+li {
+    flex-shrink: 0;
+}
+
 h1, h2, h3 {
     line-height: 1.2;
 }
