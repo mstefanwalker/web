@@ -9,6 +9,23 @@ body {
     padding: 0 1rem;
 }
 
+pre {
+    padding: 1rem 2rem;
+    background: #ddf;
+    color: #005;
+    border-radius: 0.4rem;
+    overflow: scroll;
+    font-size: 1rem;
+}
+
+a {
+    color: #154;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;
@@ -18,23 +35,6 @@ ul {
 
 li {
     flex-shrink: 0;
-}
-
-h1, h2, h3 {
-    line-height: 1.2;
-}
-
-a {
-    color: #154;
-}
-
-pre {
-    padding: 1rem 2rem;
-    background: #ddf;
-    color: #005;
-    border-radius: 0.4rem;
-    overflow: scroll;
-    font-size: 1rem;
 }
 
 hr {
