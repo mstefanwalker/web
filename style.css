@@ -28,6 +28,14 @@ a {
     color: #154;
 }
 
+pre {
+    padding: 1rem 2rem;
+    background: #ddf;
+    color: #005;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+}
+
 hr {
     visibility: hidden;
     margin: 2.3rem;
