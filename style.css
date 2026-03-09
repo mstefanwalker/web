@@ -23,6 +23,7 @@ a {
 }
 
 h1, h2, h3 {
+    margin-top: 3.5rem;
     line-height: 1.2;
 }
 
