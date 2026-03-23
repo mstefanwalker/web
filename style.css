@@ -31,11 +31,20 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
+ul:before {
+    content: "\276D";
+    color: #154;
+    position: absolute;
+    left: 0;
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.8rem;
+    padding-left: 2.6rem;
     list-style-type: none;
+    position: relative;
 }
 
 li {
