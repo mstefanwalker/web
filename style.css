@@ -5,15 +5,19 @@ body {
     line-height: 1.6;
     font-size: 1.2rem;
     color: #445;
-    background: #eef;
+    background: #eee;
     padding: 0 1rem;
 }
 
 pre {
-    padding: 1rem 2rem;
-    background: #ddf;
-    color: #005;
-    border-radius: 0.4rem;
+    margin: 2rem 0;
+    padding: 1rem 1.8rem;
+    background: #ced;
+    color: #020;
+    border-color: #395;
+    border-radius: 0 0.4rem 0.4rem 0;
+    border-width: 0.2rem;
+    border-left-style: solid;
     overflow: scroll;
     font-size: 1rem;
 }
