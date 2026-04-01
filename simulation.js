@@ -1,6 +1,7 @@
 sim = {
 
     hello: 'Welcome to plants!\n' +
+        '\n' +
         '\n[controls]\n' +
         'sim.init()\n' +
         'sim.start()\n' +
@@ -23,6 +24,7 @@ sim = {
         '\n[also try]\n' +
         'sim.step(100)\n' +
         'sim.plant(2)\n' +
+        '\n' +
         '\n(this is sim.hello)\n' +
         '\n',
 
