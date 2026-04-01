@@ -92,14 +92,14 @@ sim = {
                         angle: part.angle + Math.random(),
                         age: 0,
                         birthAge: birthAge(),
-                        children: [] // [{direction, age}, {...}, ...]
+                        children: [] // [{angle, age, ...}, {...}, ...]
                     },
                     {
                         generation: part.generation+1,
                         angle: part.angle - Math.random(),
                         age: 0,
                         birthAge: birthAge(),
-                        children: [] // [{direction, age}, {...}, ...]
+                        children: [] // [{angle, age, ...}, {...}, ...]
                     }
                 ]
             }
@@ -153,7 +153,7 @@ sim = {
             angle: angle,
             age: 0,
             birthAge: sim.birth.min + (Math.floor(Math.random() * sim.birth.initialRange)),
-            children: [] // [{direction, age}, {...}, ...]
+            children: [] // [{angle, age, ...}, {...}, ...]
         })
     },
 }
