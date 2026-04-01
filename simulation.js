@@ -1,5 +1,26 @@
 sim = {
 
+    hello: 'Welcome to plants!\n' +
+        '\n[controls]\n' +
+        'sim.init()\n' +
+        'sim.start()\n' +
+        'sim.stop()\n' +
+        'sim.step() // also sim.step(100)\n' +
+        '\n[yay!]\n' +
+        'sim.plant()\n' +
+        '\n[parameters init]\n' +
+        'sim.border\n' +
+        'sim.density\n' +
+        '\n[parameters sim]\n' +
+        'sim.birth\n' +
+        'sim.generations\n' +
+        '\n[parameters display]\n' +
+        'sim.color\n' +
+        'sim.length\n' +
+        'sim.width\n' +
+        '\n(this is sim.hello)\n' +
+        '\n',
+
     color: '#8da',
     border: 0.2, // 0 to 0.5
     density: 0.0014, // plants per pixel
@@ -14,6 +35,7 @@ sim = {
     context: null,
 
     run: function() {
+        console.log(sim.hello)
         sim.init()
         sim.start()
     },
