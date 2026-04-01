@@ -5,7 +5,7 @@ sim = {
         'sim.init()\n' +
         'sim.start()\n' +
         'sim.stop()\n' +
-        'sim.step() // also sim.step(100)\n' +
+        'sim.step()\n' +
         '\n[yay!]\n' +
         'sim.plant()\n' +
         '\n[parameters init]\n' +
@@ -18,6 +18,9 @@ sim = {
         'sim.color\n' +
         'sim.length\n' +
         'sim.width\n' +
+        '\n[also try]\n' +
+        'sim.step(100)\n' +
+        'sim.plant(2)\n' +
         '\n(this is sim.hello)\n' +
         '\n',
 
@@ -132,7 +135,8 @@ sim = {
         })
     },
 
-    plant: function() {
+    plant: function(num = 1) {
+        if (num !== 1) for (let i = 0; i < num-1; i++) sim.plant(1)
         let angle = -Math.PI/2
         let left = sim.canvas.width * sim.border
         let range = sim.canvas.width - (sim.canvas.width * sim.border * 2)
