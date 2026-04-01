@@ -8,6 +8,7 @@ sim = {
         'sim.step()\n' +
         '\n[yay!]\n' +
         'sim.plant()\n' +
+        '\n' +
         '\n[parameters init]\n' +
         'sim.border\n' +
         'sim.density\n' +
@@ -18,6 +19,7 @@ sim = {
         'sim.color\n' +
         'sim.length\n' +
         'sim.width\n' +
+        '\n' +
         '\n[also try]\n' +
         'sim.step(100)\n' +
         'sim.plant(2)\n' +
