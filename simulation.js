@@ -75,7 +75,7 @@ sim = {
     },
 
     step: function(num = 1) {
-        if (num !== 1) for (let i = 0; i <= num; i++) sim.step(1)
+        if (num !== 1) for (let i = 0; i < num-1; i++) sim.step(1)
         function birthAge() {
             return sim.birth.min + (Math.floor(Math.random() * sim.birth.range))
         }
