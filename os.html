@@ -9,23 +9,25 @@
         <title>OS</title>
     </head>
     <body>
-        <header>
-            <h1>OS</h1>
-            <pre><code>lsblk
+        <div id="web">
+            <header>
+                <h1>OS</h1>
+                <pre><code>lsblk
 dd os.iso /dev/sdx status=progress</code></pre>
-        </header>
+            </header>
 
-        <section>
-            <h2>Arch</h2>
-            <ul>
-                <li><a href="https://archlinux.org/news/">News</a></li>
-                <li><a href="https://wiki.archlinux.org/title/Main_page">Wiki</a></li>
-            </ul>
-            <pre><code>pacman -Syu # upgrade
+            <section>
+                <h2>Arch</h2>
+                <ul>
+                    <li><a href="https://archlinux.org/news/">News</a></li>
+                    <li><a href="https://wiki.archlinux.org/title/Main_page">Wiki</a></li>
+                </ul>
+                <pre><code>pacman -Syu # upgrade
 pacman -Qqe # list
 pacman -Rns # remove</code></pre>
-            <pre><code>iwctl # wifi (iwd.service)
+                <pre><code>iwctl # wifi (iwd.service)
 bluetoothctl # (bluetooth.service)</code></pre>
-        </section>
+            </section>
+        </div>
     </body>
 </html>
