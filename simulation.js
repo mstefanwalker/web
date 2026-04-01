@@ -3,8 +3,7 @@ sim = {
     color: '#8da',
     border: 0.2, // 0 to 0.5
     density: 0.0014, // plants per pixel
-    plant: {min: 100, range: 1000}, // birth age
-    child: {min: 60, range: 10000}, // birth age
+    birth: {min: 100, initialRange: 1000, range: 10000},
     length: {pow: 0.8, scale: 0.2},
     width: {min: 2, pow: 0.4, scale: 0.2},
     generations: 6,
@@ -28,40 +27,32 @@ sim = {
 
         // model
         sim.model = {}
+        sim.model.plants = []
         let numPlants = Math.ceil(window.innerWidth * sim.density)
-        let plants = []
         for (let i = 0; i < numPlants; i++) {
-            let angle = -Math.PI/2
-            let left = sim.canvas.width * sim.border
-            let range = sim.canvas.width - (sim.canvas.width * sim.border * 2)
-            plants.push({
-                root: [
-                    left + Math.random() * range,
-                    sim.canvas.height
-                ],
-                generation: 0,
-                angle: angle,
-                age: 0,
-                birthAge: sim.plant.min + (Math.floor(Math.random() * sim.plant.range)),
-                children: [] // [{direction, age}, {...}, ...]
-            })
+            sim.plant()
         }
-        sim.model.plants = plants
     },
 
     start: function() {
         sim.stop()
-        let id = setInterval(() => {
+        let simId = setInterval(() => {
             sim.step()
             sim.display()
         }, 40)
-        sim.stop = () => window.clearInterval(id)
+        let plantId = setInterval(() => {
+            sim.plant()
+        }, 5 * 60 * 1000)
+        sim.stop = () => {
+            window.clearInterval(simId)
+            window.clearInterval(plantId)
+        }
     },
 
     step: function(num = 1) {
         if (num !== 1) for (let i = 0; i <= num; i++) sim.step(1)
         function birthAge() {
-            return sim.child.min + (Math.floor(Math.random() * sim.child.range))
+            return sim.birth.min + (Math.floor(Math.random() * sim.birth.range))
         }
         function agePart(part) {
             part.age++
@@ -116,6 +107,23 @@ sim = {
         sim.context.strokeStyle = sim.color
         sim.model.plants.forEach(plant => {
             drawPart(plant, plant.root)
+        })
+    },
+
+    plant: function() {
+        let angle = -Math.PI/2
+        let left = sim.canvas.width * sim.border
+        let range = sim.canvas.width - (sim.canvas.width * sim.border * 2)
+        sim.model.plants.push({
+            root: [
+                left + Math.random() * range,
+                sim.canvas.height
+            ],
+            generation: 0,
+            angle: angle,
+            age: 0,
+            birthAge: sim.birth.min + (Math.floor(Math.random() * sim.birth.initialRange)),
+            children: [] // [{direction, age}, {...}, ...]
         })
     },
 }
