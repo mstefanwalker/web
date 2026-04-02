@@ -28,13 +28,13 @@ sim = {
         '\n(this is sim.hello)\n' +
         '\n',
 
-    color: '#8da',
     border: 0.2, // 0 to 0.5
     density: 0.0014, // plants per pixel
     birth: {min: 100, initialRange: 1000, range: 10000},
-    length: {pow: 0.8, scale: 0.2},
-    width: {min: 2, pow: 0.4, scale: 0.2},
     generations: 6,
+    color: '#8da',
+    length: {pow: 0.8, scale: 0.2, generation: 0.8},
+    width: {min: 2, pow: 0.4, scale: 0.2},
 
     stop: () => {},
     model: {},
@@ -115,7 +115,8 @@ sim = {
         function drawPart(part, start) {
             let angle = part.angle
             let age = part.age
-            let length = Math.pow(age, sim.length.pow) * sim.length.scale
+            let generation = part.generation
+            let length = Math.pow(age, sim.length.pow) * Math.pow(sim.length.generation, generation) * sim.length.scale
             let width = sim.width.min + Math.pow(age, sim.width.pow) * sim.width.scale
             let end = [
                 start[0] + (Math.cos(angle) * length),
