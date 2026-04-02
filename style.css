@@ -9,7 +9,7 @@ body {
 }
 
 #web {
-    font-family: sans-serif;
+    font-family: ubuntu, sans-serif;
     margin: 2.5rem auto;
     max-width: 35rem;
     line-height: 1.6;
