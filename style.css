@@ -42,7 +42,7 @@ h1, h2, h3 {
 }
 
 ul:before {
-    content: "\276D";
+    content: "\00BB";
     color: #154;
     position: absolute;
     left: 0;
