@@ -16,7 +16,6 @@ body {
     font-size: 1.2rem;
     color: #445;
     padding: 0 2.8rem;
-    backdrop-filter: blur(0.2rem);
 }
 
 pre {
