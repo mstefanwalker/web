@@ -30,10 +30,10 @@ sim = {
 
     border: 0.2, // 0 to 0.5
     density: 0.0014, // plants per pixel
-    birth: {min: 100, initialRange: 1000, range: 10000},
+    birth: {min: 100, initialRange: 2000, range: 10000},
     generations: 6,
     color: '#8da',
-    length: {pow: 0.8, scale: 0.2, generation: 0.8},
+    length: {pow: 0.74, scale: 0.2, generation: 0.8},
     width: {min: 2, pow: 0.4, scale: 0.2},
 
     stop: () => {},
@@ -57,7 +57,7 @@ sim = {
         // model
         sim.model = {}
         sim.model.plants = []
-        let numPlants = Math.ceil(window.innerWidth * sim.density)
+        let numPlants = Math.ceil(window.innerWidth * sim.density) + 1 // + 1 for 2 plants min
         for (let i = 0; i < numPlants; i++) {
             sim.plant()
         }
