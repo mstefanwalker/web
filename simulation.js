@@ -16,6 +16,7 @@ sim = {
         '\n[parameters sim]\n' +
         'sim.birth\n' +
         'sim.generations\n' +
+        'sim.spring\n' +
         '\n[parameters display]\n' +
         'sim.color\n' +
         'sim.length\n' +
@@ -32,6 +33,7 @@ sim = {
     density: 0.0014, // plants per pixel
     birth: {min: 100, initialRange: 2000, range: 10000},
     generations: 6,
+    spring: 8000,
     color: '#8da',
     length: {pow: 0.74, scale: 0.2, generation: 0.8},
     width: {min: 2, pow: 0.4, scale: 0.2},
@@ -57,10 +59,11 @@ sim = {
         // model
         sim.model = {}
         sim.model.plants = []
-        let numPlants = Math.ceil(window.innerWidth * sim.density) + 1 // + 1 for 2 plants min
+        let numPlants = Math.ceil(window.innerWidth * sim.density)
         for (let i = 0; i < numPlants; i++) {
             sim.plant()
         }
+        sim.model.age = 0
     },
 
     start: function() {
@@ -69,12 +72,8 @@ sim = {
             sim.step()
             sim.display()
         }, 40)
-        let plantId = setInterval(() => {
-            sim.plant()
-        }, 5 * 60 * 1000)
         sim.stop = () => {
             window.clearInterval(simId)
-            window.clearInterval(plantId)
         }
     },
 
@@ -108,7 +107,9 @@ sim = {
                 agePart(child)
             })
         }
+        if (sim.model.age % sim.spring === 0) sim.plant()  // intentional model.age 0 plant() for min 2 start plants
         sim.model.plants.forEach(plant => agePart(plant))
+        sim.model.age++
     },
 
     display: function() {
