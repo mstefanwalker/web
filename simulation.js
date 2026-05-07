@@ -66,6 +66,17 @@ sim = {
         sim.model.age = 0
     },
 
+    resize: function() {
+        let diffY = window.innerHeight - sim.canvas.height
+        let scaleX = window.innerWidth / sim.canvas.width
+        sim.canvas.height = window.innerHeight
+        sim.canvas.width = window.innerWidth
+        sim.model.plants.forEach(plant => {
+            plant.root[0] *= scaleX
+            plant.root[1] += diffY
+        })
+    },
+
     start: function() {
         sim.stop()
         let simId = setInterval(() => {
@@ -161,4 +172,4 @@ sim = {
 }
 
 document.addEventListener('DOMContentLoaded', sim.run)
-window.addEventListener('resize', sim.init)
+window.addEventListener('resize', sim.resize)
