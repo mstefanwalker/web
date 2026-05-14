@@ -18,7 +18,7 @@ sim = {
         'sim.generations\n' +
         'sim.spring\n' +
         '\n[parameters display]\n' +
-        'sim.color\n' +
+        'sim.colors\n' +
         'sim.length\n' +
         'sim.width\n' +
         '\n' +
@@ -34,7 +34,19 @@ sim = {
     birth: {min: 100, initialRange: 2000, range: 10000},
     generations: 6,
     spring: 8000,
-    color: '#8da',
+    colors: [
+        '#b6b08f',
+        '#bf690e',
+        '#bbcd47',
+        '#148107',
+        '#82c579',
+        '#3dcf3e',
+        '#02ac26',
+        '#4cba8e',
+        '#6e3f60',
+        '#9a3165',
+        '#cc0f52',
+    ],
     length: {pow: 0.74, scale: 0.2, generation: 0.8},
     width: {min: 2, pow: 0.4, scale: 0.2},
 
@@ -146,8 +158,8 @@ sim = {
         }
         sim.context.clearRect(0, 0, sim.canvas.width, sim.canvas.height)
         sim.context.lineCap = 'round'
-        sim.context.strokeStyle = sim.color
         sim.model.plants.forEach(plant => {
+            sim.context.strokeStyle = sim.colors[plant.variant]
             drawPart(plant, plant.root)
         })
     },
@@ -162,6 +174,7 @@ sim = {
                 left + Math.random() * range,
                 sim.canvas.height
             ],
+            variant: Math.floor(Math.random() * sim.colors.length),
             generation: 0,
             angle: angle,
             age: 0,
