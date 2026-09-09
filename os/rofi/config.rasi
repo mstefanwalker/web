@@ -1,0 +1,62 @@
+/*
+ *  Simple dark color theme
+ *  Started by following the rofi docs
+ *  Organization inspired by solarized.rasi
+ *  Assembled and not completely understood by m
+ */
+* {
+	foreground: #fff;
+	foreground-dim: #aaa;
+	foreground-dark: #888;
+	background: #000;
+	background-light: #111;
+	background-selected: #567;
+
+	normal-foreground: @foreground;
+	urgent-foreground: @foreground;
+	active-foreground: @foreground;
+	alternate-normal-foreground: @foreground;
+	alternate-urgent-foreground: @foreground;
+	alternate-active-foreground: @foreground;
+	selected-normal-foreground: @foreground;
+	selected-urgent-foreground: @foreground;
+	selected-active-foreground: @foreground;
+
+	normal-background: @background;
+	urgent-background: @background;
+	active-background: @background;
+	alternate-normal-background: @background;
+	alternate-urgent-background: @background;
+	alternate-active-background: @background;
+	selected-normal-background: @background-selected;
+	selected-urgent-background: @background-selected;
+	selected-active-background: @background-selected;
+}
+window {
+	border: 0;
+	background-color: @background-light;
+	width: 30%;
+}
+mainbox {
+	padding: 0;
+}
+prompt, textbox-prompt-colon, entry {
+	text-color: @foreground;
+}
+listview {
+	spacing: 0;
+	border: 0;	
+}
+element {
+	background-color: @background;
+}
+element-text {
+	text-color: @foreground-dark;
+}
+element-text selected {
+	text-color: @foreground;
+}
+#scrollbar {
+	handle-color: @foreground-dim;
+}
+
